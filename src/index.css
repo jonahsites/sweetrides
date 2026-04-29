@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fredoka One", cursive;
+  --color-luxury-black: #080C07;
+  --color-luxury-grey: #0F1A0A;
+  --color-accent: #6DC135;
+  --color-accent-glow: rgba(109, 193, 53, 0.4);
+  --color-cream: #F2EED7;
+}
+
+@layer base {
+  body {
+    background-color: #080C07;
+    color: white;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+}
+
+@utility text-outline {
+  color: rgba(255, 255, 255, 0.03);
+  -webkit-text-stroke: 3px rgba(255, 255, 255, 0.45);
+}
+
+@utility text-green-outline {
+  color: rgba(109, 193, 53, 0.05);
+  -webkit-text-stroke: 3px rgba(109, 193, 53, 0.6);
+}
+
+@utility bubble-text {
+  -webkit-text-stroke: 5px #000;
+  paint-order: stroke fill;
+  text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.35);
+}
+
+@utility transition-smooth {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@utility transition-editorial {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@utility bg-grid-scan {
+  background-image:
+    linear-gradient(rgba(109, 193, 53, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(109, 193, 53, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility bg-checker {
+  background-image: repeating-conic-gradient(#6DC135 0% 25%, #000 0% 50%);
+  background-size: 14px 14px;
+}
+
+@utility bg-checker-dark {
+  background-image: repeating-conic-gradient(#1a3d08 0% 25%, #000 0% 50%);
+  background-size: 14px 14px;
+}
+
+@utility retro-stripe {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(109, 193, 53, 0.06) 10px,
+    rgba(109, 193, 53, 0.06) 20px
+  );
+}
+
+@utility hud-glow {
+  box-shadow: 0 0 20px var(--color-accent-glow);
+}
+
+@utility retro-glow {
+  box-shadow:
+    0 0 30px rgba(109, 193, 53, 0.4),
+    0 0 80px rgba(109, 193, 53, 0.15);
+}
+
+@utility corner-bracket {
+  position: relative;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: var(--color-accent);
+  }
+  &::before {
+    top: 0;
+    left: 0;
+    border-top: 3px solid;
+    border-left: 3px solid;
+  }
+  &::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+  }
+}
